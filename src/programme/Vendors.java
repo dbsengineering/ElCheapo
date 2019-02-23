@@ -1,16 +1,20 @@
 package programme;
 import java.util.Collection;
 import java.util.HashSet;
-
-import strategy.ChoixTVA;
 import strategy.TVA1;
 import strategy.TVA2;
 import strategy.TVA3;
 
+/**
+ * Liste des vendeurs
+ * @author Cavron Jérémy
+ *
+ */
 public interface Vendors {
 	
 	public static Collection<VendorInter> getVendors(){
 		Collection<VendorInter> col = new HashSet<VendorInter>();
+		
 		VendorInter v0 = new Vendor("Sensi Seed");
 		VendorInter v1 = new Vendor("amsterdamseedcenter");
 		VendorInter v2 = new Vendor("JeremSeedBrain");
@@ -23,6 +27,20 @@ public interface Vendors {
 		cat0.setStrategyTVA(new TVA1());
 		cat1.setStrategyTVA(new TVA2());
 		cat2.setStrategyTVA(new TVA3());
+		
+		/*Document doc;
+		try {
+			doc = Jsoup.connect("https://sensiseeds.com/fr/filter/fr/graines-feminisees").get();
+			Elements product = doc.getElementsByClass("product-name");
+	        Elements price = doc.getElementsByClass("price_amount");
+	       
+	        String[] lstProduct = product.html().split("\n");
+	        String[] lstPrice = price.html().split("\n");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+        
 		
 		v0.addProduct(new Product("White Skunk", 14.00, cat0));
 		v0.addProduct(new Product("Purple Bud", 14.00, cat0));
