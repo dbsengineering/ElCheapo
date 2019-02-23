@@ -28,6 +28,11 @@ peu de rigueur de l’équipe de GoodOlCheapo, vous savez que vous avez mieux à
 aurez à faire évoluer vos extensions, ainsi que les algorithmes de calcul du prix...
 
 
+# Diagramme de classe. Pattern Decorator et Strategy
+
+<img src="https://user-images.githubusercontent.com/8668325/53290133-48f7b880-37a0-11e9-9be0-8984eaa2780e.PNG" width="1084" height="470">
+(Illustration : Diagramme de classe. Pattern Decorator et Strategy)
+
 ## Authors
 
 * **Cavron Jérémy** - *Initial work* - [Portfolio](http://www.dbs.bzh/portfolio)

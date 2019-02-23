@@ -13,7 +13,6 @@ public class Main {
 		//Application design pattern Decorator
 		GoodOlCheapoTVA goCheapTVA = new GoodOlCheapoTVA(goCheap);
 		System.out.println("White Haze whith TVA : "+ goCheapTVA.getBestOffer("White Haze").price);
-		System.out.println("White Haze whith TVA : "+ goCheapTVA.getBestOffer("White Haze").category.getName());
 	}
 
 }
