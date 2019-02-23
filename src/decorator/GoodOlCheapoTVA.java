@@ -26,7 +26,6 @@ public class GoodOlCheapoTVA extends ElCheapoDecorator {
 		while(it.hasNext()) {
 			VendorInter vendor = it.next();
 			double price = vendor.getPrice(productName);
-			
 			while(it2.hasNext()) {
 				VendorInter vend2 = it2.next();
 				double price2 = vend2.getPrice(productName);
