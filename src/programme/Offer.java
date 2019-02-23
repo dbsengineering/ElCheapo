@@ -12,7 +12,7 @@ public class Offer {
 	 * @param category
 	 */
 	public Offer(double price, VendorInter vendor, ProductCategory category) {
-		this.price = price;
+		this.price = price*category.getTVA();
 		this.vendor = vendor;
 		this.category = category;
 	}

@@ -1,17 +1,18 @@
 package strategy;
 
-public class TVA2 implements ChoixTVA{
+import programme.ProductCategory;
 
-	@Override
-	public void configure() {
-		// TODO Auto-generated method stub
-		
-	}
+public class TVA2 implements ChoixTVA{
+	
+	private ProductCategory category;
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
+		this.category.setTVA(1.196);
 	}
 
+	@Override
+	public void configure(ProductCategory category) {
+		this.category = category;
+	}
 }

@@ -2,6 +2,11 @@ package programme;
 import java.util.Collection;
 import java.util.HashSet;
 
+import strategy.ChoixTVA;
+import strategy.TVA1;
+import strategy.TVA2;
+import strategy.TVA3;
+
 public interface Vendors {
 	
 	public static Collection<VendorInter> getVendors(){
@@ -13,6 +18,11 @@ public interface Vendors {
 		ProductCategory cat0 = new Category("Féminisé");
 		ProductCategory cat1 = new Category("Auto-Floraison");
 		ProductCategory cat2 = new Category("CBD");
+		
+		//Ajout des TVA
+		cat0.setStrategyTVA(new TVA1());
+		cat1.setStrategyTVA(new TVA2());
+		cat2.setStrategyTVA(new TVA3());
 		
 		v0.addProduct(new Product("White Skunk", 14.00, cat0));
 		v0.addProduct(new Product("Purple Bud", 14.00, cat0));
