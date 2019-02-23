@@ -33,6 +33,21 @@ aurez à faire évoluer vos extensions, ainsi que les algorithmes de calcul du p
 <img src="https://user-images.githubusercontent.com/8668325/53290133-48f7b880-37a0-11e9-9be0-8984eaa2780e.PNG" width="1084" height="470">
 (Illustration : Diagramme de classe. Pattern Decorator et Strategy)
 
+
+##Partie 2. Et toujours plus vite...
+
+Vous réalisez que le système de calcul des meilleurs prix chez tel ou tel vendeur est en fait stocké dans une
+base de donnée de marque DevinTM, lue par GoodOlCheapo. Vous faites remarquer au CTO de GigaESN
+qu’une architecture parallèle et distribuée est bien mieux adaptée, les prix étant alors fournis à la volée par
+les sites des vendeurs.
+Le CTO vous prend au mot : vous avez deux heures maximum pour concevoir une nouvelle
+implémentation de GoodOlCheapo qui emploie des requêtes asynchrones vers les différents vendeurs. On
+dirait bien qu’il va falloir appliquer un patron supplémentaire...
+Par ailleurs, comme les vendeurs sont interrogés en parallèle, la première offre retournée par le vendeur le
+plus rapide à répondre servira pour le calcul de la meilleure offre retournée au visiteur. Pour interroger un
+vendeur on peut obtenir l’ensemble des vendeurs via l’opération statique Vendors::getVendors, puis
+employer l’opération synchrone Vendor::getPrice.
+
 ## Authors
 
 * **Cavron Jérémy** - *Initial work* - [Portfolio](http://www.dbs.bzh/portfolio)
