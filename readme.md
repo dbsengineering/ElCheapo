@@ -28,10 +28,10 @@ peu de rigueur de l’équipe de GoodOlCheapo, vous savez que vous avez mieux à
 aurez à faire évoluer vos extensions, ainsi que les algorithmes de calcul du prix...
 
 
-# Diagramme de classe. Pattern Decorator et Strategy
+# Diagramme de classe. Design Pattern Decorator et Strategy
 
 <img src="https://user-images.githubusercontent.com/8668325/53290133-48f7b880-37a0-11e9-9be0-8984eaa2780e.PNG" width="1084" height="470">
-(Illustration : Diagramme de classe. Pattern Decorator et Strategy)
+(Illustration : Diagramme de classe. Design Pattern Decorator et Strategy)
 
 
 ##Partie 2. Et toujours plus vite...
@@ -47,6 +47,14 @@ Par ailleurs, comme les vendeurs sont interrogés en parallèle, la première of
 plus rapide à répondre servira pour le calcul de la meilleure offre retournée au visiteur. Pour interroger un
 vendeur on peut obtenir l’ensemble des vendeurs via l’opération statique Vendors::getVendors, puis
 employer l’opération synchrone Vendor::getPrice.
+
+# Diagramme de classe. Ajout du design pattern ActiveObject
+
+
+<img src="https://user-images.githubusercontent.com/8668325/53298328-82760580-382c-11e9-9383-ef6ce19912ac.png" width="1104" height="555">
+(Illustration : Diagramme de classe. Design Pattern Active object)
+
+Avec les librairies Java, certaines classes ont plusieurs rôles dans l'active object.
 
 ## Authors
 
