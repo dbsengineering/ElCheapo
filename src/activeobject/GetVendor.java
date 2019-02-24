@@ -77,6 +77,9 @@ public class GetVendor implements GetVendorInter {
 				category.setStrategyTVA(new TVA3());
 				System.out.println(3);
 				break;
+				default:
+					category.setStrategyTVA(new TVA1());
+					System.out.println("defaut");
 			}
 			
 			v0.addProduct(new Product(lst.get(2), 

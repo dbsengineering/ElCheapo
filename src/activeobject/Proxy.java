@@ -40,7 +40,7 @@ public class Proxy implements AsynchroneVendors {
 				}
 				vendor = future.get();
 			} catch (InterruptedException | ExecutionException e) {
-				// ... Exception handling code ...
+				System.out.println(e);
 			}
 			lstVendors.add(vendor);
 		}
