@@ -34,7 +34,7 @@ aurez à faire évoluer vos extensions, ainsi que les algorithmes de calcul du p
 (Illustration : Diagramme de classe. Design Pattern Decorator et Strategy)
 
 
-##Partie 2. Et toujours plus vite...
+## Partie 2. Et toujours plus vite...
 
 Vous réalisez que le système de calcul des meilleurs prix chez tel ou tel vendeur est en fait stocké dans une
 base de donnée de marque DevinTM, lue par GoodOlCheapo. Vous faites remarquer au CTO de GigaESN
