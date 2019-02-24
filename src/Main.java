@@ -1,6 +1,7 @@
 
 import decorator.GoodOlCheapoTVA;
 import programme.GoodOlCheapo;
+import programme.Offer;
 
 public class Main {
 	
@@ -12,7 +13,12 @@ public class Main {
 		
 		//Application design pattern Decorator
 		GoodOlCheapoTVA goCheapTVA = new GoodOlCheapoTVA(goCheap);
-		System.out.println("White Haze whith TVA : "+ goCheapTVA.getBestOffer("White Haze").price);
+		Offer bestOffer = goCheapTVA.getBestOffer("White Haze");
+		if(bestOffer != null ) {
+			System.out.println("White Haze whith TVA : "+ bestOffer.price);
+		}else {
+			System.out.println("Nous n'avons pas trouvé d'offres !");
+		}
 	}
 
 }

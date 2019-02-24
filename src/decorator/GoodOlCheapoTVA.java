@@ -2,23 +2,24 @@ package decorator;
 
 import java.util.Collection;
 import java.util.Iterator;
-
 import programme.ElCheapo;
 import programme.Offer;
 import programme.Product;
 import programme.ProductInter;
 import programme.VendorInter;
-import programme.Vendors;
+import programme.VendorsActive;
 
 public class GoodOlCheapoTVA extends ElCheapoDecorator {
 	
-	private Collection<VendorInter> mVendors = Vendors.getVendors();
 
+	private Collection<VendorInter> mVendors = VendorsActive.getVendors();
+	
 	public GoodOlCheapoTVA(ElCheapo composant) {
 		super(composant);
 	}
 	
 	protected Offer getBestOfferTVA(String productName) {
+		
 		Iterator<VendorInter> it = mVendors.iterator();
 		Iterator<VendorInter> it2 = mVendors.iterator();
 		it2.next();
@@ -32,6 +33,7 @@ public class GoodOlCheapoTVA extends ElCheapoDecorator {
 				if(price >= price2) {
 					price = vend2.getPrice(productName);
 					ProductInter prod = vend2.getProduct(productName);
+					//System.out.println(price);
 					offer = new Offer(price, vendor, ((Product)prod).getCategory());
 				}
 			}

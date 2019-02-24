@@ -1,10 +1,9 @@
 package activeobject;
 
-import java.util.concurrent.Future;
-import programme.Vendors;
+import java.util.Collection;
+import programme.VendorInter;
 
 public interface AsynchroneVendors {
 	
-	Future<Vendors> getVendors();
-
+	Collection<VendorInter> getVendors();
 }

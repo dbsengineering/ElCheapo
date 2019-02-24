@@ -1,57 +1,50 @@
 package activeobject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import programme.VendorInter;
 
-import programme.Vendors;
 
 public class Proxy implements AsynchroneVendors {
 	
-	private ScheduledExecutorService mSES;
-
 	@Override
-	public Future<Vendors> getVendors() {
-		this.mSES = new ScheduledThreadPoolExecutor(1);
-		List<List<String>> records = new ArrayList<>();
-		URL vendorsURL = null;
-		try {
-			vendorsURL = new URL("https://raw.githubusercontent.com/dbsengineering/ElCheapo/master/vendor1.csv");
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(vendorsURL.openStream()))) {
-		    String line;
-		    try {
-				while ((line = br.readLine()) != null) {
-				    String[] values = line.split(",");
-				    records.add(Arrays.asList(values));
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	public Collection<VendorInter> getVendors() {
+		Collection<VendorInter> lstVendors = new HashSet<VendorInter>();
+		ExecutorService executor = Executors.newFixedThreadPool(3);
+		List<String> lstVend = new ArrayList<String>();
+		lstVend.add("vendor1.csv");
+		lstVend.add("vendor2.csv");
+		lstVend.add("vendor3.csv");
 		
-		Iterator<List<String>> it = records.iterator();
-		it.next();
-		while(it.hasNext()) {
-			List<String> lst = it.next();
-			System.out.println(lst.get(0));
+		//Boucle sur mes vendeurs disponibles
+		for (String vendorFile : lstVend) {
+			Callable<VendorInter> task = new GetVendor(vendorFile);
+			//List<Callable<Vendor>> callables = new ArrayList<>();
+
+			//callables.add(new Download(vendorFile));
+
+			//List<Future<Vendor>> futures = executor.invokeAll(callables);
+			Future<VendorInter> future = executor.submit(task);
+			VendorInter vendor = null;
+			try {
+				while(!future.isDone()) {
+				    System.out.println("Download Vendors...");
+				    Thread.sleep(300);
+				}
+				vendor = future.get();
+			} catch (InterruptedException | ExecutionException e) {
+				// ... Exception handling code ...
+			}
+			lstVendors.add(vendor);
 		}
-		return null;
+		executor.shutdown();
+		return lstVendors;
 	}
 }
