@@ -35,7 +35,6 @@ public class GetVendor implements GetVendorInter {
 		try {
 			vendorsURL = new URL(url + this.vendorFile);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(vendorsURL.openStream()))) {
@@ -46,11 +45,9 @@ public class GetVendor implements GetVendorInter {
 				    records.add(Arrays.asList(values));
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -67,25 +64,20 @@ public class GetVendor implements GetVendorInter {
 			switch(Integer.valueOf(lst.get(4))) {
 			case 1:
 				category.setStrategyTVA(new TVA1());
-				System.out.println(1);
 				break;
 			case 2:
 				category.setStrategyTVA(new TVA2());
-				System.out.println(2);
 				break;
 			case 3:
 				category.setStrategyTVA(new TVA3());
-				System.out.println(3);
 				break;
 				default:
 					category.setStrategyTVA(new TVA1());
-					System.out.println("defaut");
 			}
 			
 			v0.addProduct(new Product(lst.get(2), 
 					Double.valueOf(lst.get(3)), 
 					category));
-			//System.out.println(((Vendor)v0).getmName() + " " + lst.get(1) + " " + lst.get(2) + " " + Double.valueOf(lst.get(3)));
 		}
 		return v0;
 	}
