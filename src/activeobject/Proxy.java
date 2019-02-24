@@ -9,7 +9,7 @@ public class Proxy implements AsynchroneVendors {
 	private ScheduledExecutorService mSES;
 
 	@Override
-	public Future<Vendors> getValue() {
+	public Future<Vendors> getVendors() {
 		// TODO Auto-generated method stub
 		return null;
 	}

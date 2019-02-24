@@ -5,6 +5,6 @@ import programme.Vendors;
 
 public interface AsynchroneVendors {
 	
-	Future<Vendors> getValue();
+	Future<Vendors> getVendors();
 
 }
